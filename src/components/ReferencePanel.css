@@ -1,0 +1,119 @@
+.reference-panel {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 0;
+}
+
+.reference-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ref-heading {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+/* ── Feet grid ── */
+.feet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.5rem;
+}
+
+.foot-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--c, var(--border));
+  background: color-mix(in srgb, var(--c, transparent) 8%, transparent);
+}
+
+.foot-card-name {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--c, var(--text));
+}
+
+.foot-card-pattern {
+  font-family: var(--mono);
+  font-size: 1rem;
+  color: var(--text);
+  letter-spacing: 0.15em;
+}
+
+.foot-card-example {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ── Meters list ── */
+.meters-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.meter-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.meter-name {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text);
+  min-width: 90px;
+}
+
+.meter-feet {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.ref-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ── Markers legend ── */
+.marker-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.marker-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.mk {
+  font-family: var(--mono);
+  font-size: 1rem;
+  min-width: 2rem;
+  display: inline-block;
+  text-align: center;
+}
+
+.stressed-mk   { color: var(--stressed); }
+.unstressed-mk { color: var(--unstressed); }
+.uncertain-mk  { color: var(--uncertain); border-bottom: 1px dashed var(--uncertain); }
+.override-mk   { color: var(--stressed); text-decoration: underline; text-underline-offset: 2px; }
