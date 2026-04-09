@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { loadDict, scanLine, recomputeLine, ScannedLine, Stress } from './lib/scansion'
 import ScansionDisplay from './components/ScansionDisplay'
 import ReferencePanel from './components/ReferencePanel'
+import RhymePanel from './components/RhymePanel'
 import './App.css'
 
 const PLACEHOLDER = `Shall I compare thee to a summer's day?
@@ -15,6 +16,7 @@ export default function App() {
   const [dictError, setDictError] = useState(false)
   const [scanning, setScanning] = useState(false)
   const [refOpen, setRefOpen] = useState(false)
+  const [rhymeOpen, setRhymeOpen] = useState(false)
 
   useEffect(() => {
     loadDict()
@@ -67,6 +69,13 @@ export default function App() {
           <p className="tagline">Poetry scansion in your browser</p>
           <button
             className="ref-toggle"
+            onClick={() => setRhymeOpen(o => !o)}
+            aria-expanded={rhymeOpen}
+          >
+            {rhymeOpen ? 'Hide' : 'Find'} rhymes
+          </button>
+          <button
+            className="ref-toggle"
             onClick={() => setRefOpen(o => !o)}
             aria-expanded={refOpen}
           >
@@ -76,6 +85,12 @@ export default function App() {
       </header>
 
       {refOpen && <ReferencePanel />}
+      {rhymeOpen && (
+        <RhymePanel
+          lines={input.split('\n').filter(l => l.trim())}
+          onClose={() => setRhymeOpen(false)}
+        />
+      )}
 
       <main className="main">
         {dictError && (
